@@ -1,4 +1,4 @@
-# Slush Slush-phaser-webpack 
+# slush-phaser-webpack 
 
 [![Build Status](https://secure.travis-ci.org/the-simian/slush-phaser-webpack.png?branch=master)](https://travis-ci.org/the-simian/slush-slush-phaser-webpack) 
 
