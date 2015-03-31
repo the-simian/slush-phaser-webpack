@@ -93,11 +93,11 @@ project:
 
    ```bash
    # Clone your fork of the repo into the current directory
-   git clone https://github.com/<your-username>/slush-slush-phaser-webpack
+   git clone https://github.com/<your-username>/slush-phaser-webpack
    # Navigate to the newly cloned directory
-   cd slush-slush-phaser-webpack
+   cd slush-phaser-webpack
    # Assign the original repo to a remote called "upstream"
-   git remote add upstream https://github.com/the-simian/slush-slush-phaser-webpack
+   git remote add upstream https://github.com/the-simian/slush-phaser-webpack
    ```
 
 2. If you cloned a while ago, get the latest changes from upstream:
