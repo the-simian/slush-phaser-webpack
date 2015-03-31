@@ -4,6 +4,7 @@
 
 > A slush generator for creating games that uses webpack and commonjs compliant modules. Gulp for build system. Tools to assist in development.
 
+![Slush-Phaser-Webpack](http://i.imgur.com/8NYhldm.png)
 
 ## Getting Started
 
