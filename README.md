@@ -10,7 +10,7 @@
 Install `slush-slush-phaser-webpack` globally:
 
 ```bash
-$ npm install -g slush-slush-phaser-webpack
+$ npm install -g slush-phaser-webpack
 ```
 
 ### Usage
@@ -18,13 +18,13 @@ $ npm install -g slush-slush-phaser-webpack
 Create a new folder for your project:
 
 ```bash
-$ mkdir my-slush-slush-phaser-webpack
+$ mkdir my-slush-phaser-webpack
 ```
 
 Run the generator from within the new folder:
 
 ```bash
-$ cd my-slush-slush-phaser-webpack && slush slush-phaser-webpack
+$ cd my-slush-phaser-webpack && slush phaser-webpack
 ```
 
 ## Getting To Know Slush
