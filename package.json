@@ -42,11 +42,11 @@
   "dependencies": {
     "slush": "1.x.x",
     "gulp": "3.x.x",
-    "gulp-template": "0.x.x",
+    "gulp-template": "3.x.x",
     "gulp-install": "0.x.x",
     "gulp-conflict": "0.x.x",
     "gulp-rename": "1.x.x",
-    "underscore.string": "2.x.x",
+    "underscore.string": "3.x.x",
     "inquirer": "0.x.x",
     "iniparser": "1.x.x"
   }
