@@ -2,6 +2,14 @@
 
 [![Build Status](https://secure.travis-ci.org/the-simian/slush-phaser-webpack.png?branch=master)](https://travis-ci.org/the-simian/slush-slush-phaser-webpack) 
 
+[![Code Climate](https://codeclimate.com/github/the-simian/slush-phaser-webpack/badges/gpa.svg)](https://codeclimate.com/github/the-simian/slush-phaser-webpack)
+
+[![Coverage Status](https://coveralls.io/repos/the-simian/slush-phaser-webpack/badge.svg)](https://coveralls.io/r/the-simian/slush-phaser-webpack)
+
+[![David-Dm](https://david-dm.org/the-simian/slush-phaser-webpack.svg)](https://david-dm.org/the-simian/slush-phaser-webpack)
+
+
+
 > A slush generator for creating games that uses webpack and commonjs compliant modules. Gulp for build system. Tools to assist in development.
 
 ![Slush-Phaser-Webpack](http://i.imgur.com/8NYhldm.png)
