@@ -1,4 +1,6 @@
-# Slush Slush-phaser-webpack [![Build Status](https://secure.travis-ci.org/the-simian/slush-slush-phaser-webpack.png?branch=master)](https://travis-ci.org/the-simian/slush-slush-phaser-webpack) [![NPM version](https://badge-me.herokuapp.com/api/npm/slush-slush-phaser-webpack.png)](http://badges.enytc.com/for/npm/slush-slush-phaser-webpack)
+# Slush Slush-phaser-webpack 
+
+[![Build Status](https://secure.travis-ci.org/the-simian/slush-phaser-webpack.png?branch=master)](https://travis-ci.org/the-simian/slush-slush-phaser-webpack) 
 
 > A slush generator for creating games that uses webpack and commonjs compliant modules. Gulp for build system. Tools to assist in development.
 
