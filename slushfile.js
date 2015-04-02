@@ -17,6 +17,8 @@ var gulp = require('gulp'),
   inquirer = require('inquirer'),
   path = require('path');
 
+var moment = require('moment');
+
 function format(string) {
   var username = string.toLowerCase();
   return username.replace(/\s/g, '');
@@ -57,6 +59,9 @@ function scaffold(answers) {
   }
   
   answers.appNameSlug = _.slugify(answers.appName);
+  
+  answers.dateYYYY = moment('YYYY');
+  
   
   gulp.src(__dirname + '/templates/**')
     .pipe(template(answers))

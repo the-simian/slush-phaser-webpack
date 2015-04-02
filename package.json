@@ -1,7 +1,7 @@
 {
   "name": "slush-phaser-webpack",
   "description": "A slush generator for creating games that uses webpack and commonjs compliant modules. Gulp for build system. Tools to assist in development.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/the-simian/slush-phaser-webpack",
   "author": {
     "name": "Jesse Harlin",
@@ -14,10 +14,12 @@
   "bugs": {
     "url": "https://github.com/the-simian/slush-phaser-webpack/issues"
   },
-  "licenses": [{
-    "type": "MIT",
-    "url": "https://github.com/the-simian/slush-phaser-webpack/blob/master/LICENSE"
-  }],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/the-simian/slush-phaser-webpack/blob/master/LICENSE"
+    }
+  ],
   "main": "slushfile.js",
   "engines": {
     "node": ">= 0.10.26",
@@ -40,14 +42,15 @@
     "game"
   ],
   "dependencies": {
-    "slush": "1.x.x",
     "gulp": "3.x.x",
-    "gulp-template": "3.x.x",
-    "gulp-install": "0.x.x",
     "gulp-conflict": "0.x.x",
+    "gulp-install": "0.x.x",
     "gulp-rename": "1.x.x",
-    "underscore.string": "3.x.x",
+    "gulp-template": "3.x.x",
+    "iniparser": "1.x.x",
     "inquirer": "0.x.x",
-    "iniparser": "1.x.x"
+    "moment": "^2.9.0",
+    "slush": "1.x.x",
+    "underscore.string": "3.x.x"
   }
 }
