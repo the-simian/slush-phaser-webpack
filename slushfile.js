@@ -61,6 +61,8 @@ function scaffold(answers) {
   answers.appNameSlug = _.slugify(answers.appName);
   
   answers.dateYYYY = moment('YYYY');
+  answers.githubRepo = answers.githubRepo || 
+    'https://github.com/' + answers.userName + '/' + answers.appName;
   
   
   gulp.src(__dirname + '/templates/**')

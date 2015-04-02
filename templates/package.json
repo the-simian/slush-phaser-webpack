@@ -1,23 +1,23 @@
 {
   "name": "<%= appName %> ",
   "description": "<%= appDescription %>",
-  "version": "<% appVersion %>",
-  "homepage": "<% githubRepo %>",
+  "version": "<%= appVersion %>",
+  "homepage": "<%= githubRepo %>",
   "author": {
     "name": "<%= authorName %>",
     "email": "<%= authorEmail %>"
   },
   "repository": {
     "type": "git",
-    "url": "<% githubRepo %>.git"
+    "url": "<%= githubRepo %>.git"
   },
   "bugs": {
-    "url": "<% githubRepo %>/issues"
+    "url": "<%= githubRepo %>/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "<% githubRepo %>/blob/master/LICENSE"
+      "url": "<%= githubRepo %>/blob/master/LICENSE"
     }
   ],
   "engines": {
