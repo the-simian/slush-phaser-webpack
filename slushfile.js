@@ -74,7 +74,7 @@ function defaultTask(cb) {
           file.basename = '.' + file.basename.slice(1);
         }
       }))
-      .pipe(conflict('./'))
+      //.pipe(conflict('./'))
       .pipe(gulp.dest('./'))
       .pipe(install())
       .on('finish', cb);

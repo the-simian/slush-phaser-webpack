@@ -2,6 +2,7 @@
 var inquirer = require('inquirer');
 
 function mockPrompt(answers) {
+  
   function assignAnswer(prompt) {
     if (!(prompt.name in answers)) {
       answers[prompt.name] = prompt.default;

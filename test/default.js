@@ -30,7 +30,7 @@ describe('slush-phaser-webpack', function () {
         
         console.log('cwd',mockGulpDest.cwd())
         
-        //mockGulpDest.assertDestContains('README.md');
+        mockGulpDest.assertDestContains('README.md');
         //gulp.removeListener('task_stop', assertDirectories);
         done();
       }
