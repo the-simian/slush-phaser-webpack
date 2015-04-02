@@ -55,7 +55,8 @@
     "underscore.string": "3.x.x"
   },
   "devDependencies": {
-    "chai": "^2.2.0",
+    "chai": "1.x.x",
+    "chai-fs": "^0.1.0",
     "gulp-coveralls": "^0.1.3",
     "gulp-istanbul": "^0.7.0",
     "gulp-mocha": "^2.0.1",

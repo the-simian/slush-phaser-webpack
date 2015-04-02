@@ -52,36 +52,34 @@ var defaults = (function () {
 })();
 
 
-function scaffold(answers) {
 
-  if (!answers.moveon) {
-    return done();
+
+function defaultTask(cb) {
+
+  function scaffold(answers) {
+
+    if (!answers.moveon) {
+      return cb();
+    }
+
+    answers.appNameSlug = _.slugify(answers.appName);
+    answers.dateYYYY = moment('YYYY');
+    answers.githubRepo = answers.githubRepo ||
+      'https://github.com/' + answers.userName + '/' + answers.appName;
+
+    gulp.src(__dirname + '/templates/**')
+      .pipe(template(answers))
+      .pipe(rename(function (file) {
+        if (file.basename[0] === '_') {
+          file.basename = '.' + file.basename.slice(1);
+        }
+      }))
+      .pipe(conflict('./'))
+      .pipe(gulp.dest('./'))
+      .pipe(install())
+      .on('finish', cb);
   }
-  
-  answers.appNameSlug = _.slugify(answers.appName);
-  
-  answers.dateYYYY = moment('YYYY');
-  answers.githubRepo = answers.githubRepo || 
-    'https://github.com/' + answers.userName + '/' + answers.appName;
-  
-  
-  gulp.src(__dirname + '/templates/**')
-    .pipe(template(answers))
-    .pipe(rename(function (file) {
-      if (file.basename[0] === '_') {
-        file.basename = '.' + file.basename.slice(1);
-      }
-    }))
-    .pipe(conflict('./'))
-    .pipe(gulp.dest('./'))
-    .pipe(install())
-    .on('end', function () {
-      done();
-    });
-  
-}
 
-function defaultTask(done) {
   var prompts = [{
     name: 'appName',
     message: 'What is the name of your project?',

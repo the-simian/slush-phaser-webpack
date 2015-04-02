@@ -16,7 +16,7 @@ function test(cb) {
 
   function runner() {
     gulp
-      .src(['./test/main.js'])
+      .src(['./test/*.js'])
       .pipe(mocha(mochaOpts))
       .pipe(istanbul.writeReports())
 
@@ -24,7 +24,7 @@ function test(cb) {
   }
 
   gulp
-    .src(['./index.js'])
+    .src(['./slushfile.js'])
     .pipe(istanbul())
     .pipe(istanbul.hookRequire())
     .on('finish', runner);
