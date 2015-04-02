@@ -52,8 +52,6 @@ var defaults = (function () {
 })();
 
 
-
-
 function defaultTask(cb) {
 
   function scaffold(answers) {
