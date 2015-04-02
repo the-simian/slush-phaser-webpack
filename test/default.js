@@ -27,11 +27,7 @@ describe('slush-phaser-webpack', function () {
     it('should make a readme', function (done) {
 
       function assertDirectories() {
-        
-        console.log('cwd',mockGulpDest.cwd())
-        
         mockGulpDest.assertDestContains('README.md');
-        //gulp.removeListener('task_stop', assertDirectories);
         done();
       }
 
