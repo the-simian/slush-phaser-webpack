@@ -47,7 +47,7 @@
     "gulp-install": "0.x.x",
     "gulp-rename": "1.x.x",
     "gulp-template": "3.x.x",
-    "iniparser": "1.x.x",
+    "iniparser": "^1.0.5",
     "inquirer": "0.x.x",
     "lodash": "^3.6.0",
     "moment": "^2.9.0",
