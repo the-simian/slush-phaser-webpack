@@ -24,7 +24,7 @@ function format(string) {
   return username.replace(/\s/g, '');
 }
 
-var defaults = (function () {
+var defaults = (function makeDefaults() {
   var workingDirName = path.basename(process.cwd()),
     homeDir, osUserName, configFile, user;
 
@@ -42,7 +42,9 @@ var defaults = (function () {
   if (require('fs').existsSync(configFile)) {
     user = require('iniparser').parseSync(configFile).user;
   }
-
+  
+  user = user || {};
+  
   return {
     appName: workingDirName,
     userName: osUserName || format(user.name || ''),
