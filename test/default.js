@@ -32,10 +32,27 @@ describe('slush-phaser-webpack', function () {
       }
 
       gulp
-        .on('task_stop', assertDirectories)
-        .start('default');
+        .start('default')
+        .once('task_stop', assertDirectories);
     });
+
+    it('should make a package.json', function (done) {
+
+      function assertDirectories() {
+        mockGulpDest.assertDestContains('package.json');
+        done();
+      }
+
+      gulp
+        .start('default')
+        .once('task_stop', assertDirectories);
+    });
+
 
   });
 
 });
+
+
+
+//store340@lumberliquidators.com
