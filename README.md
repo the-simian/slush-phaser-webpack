@@ -1,6 +1,6 @@
-# slush-phaser-webpack 
+# slush-phaser-webpack
 
-[![Build Status](https://secure.travis-ci.org/the-simian/slush-phaser-webpack.png?branch=master)](https://travis-ci.org/the-simian/slush-slush-phaser-webpack) 
+[![Build Status](https://secure.travis-ci.org/the-simian/slush-phaser-webpack.png?branch=master)](https://travis-ci.org/the-simian/slush-slush-phaser-webpack)
 
 [![Code Climate](https://codeclimate.com/github/the-simian/slush-phaser-webpack/badges/gpa.svg)](https://codeclimate.com/github/the-simian/slush-phaser-webpack)
 
@@ -51,7 +51,7 @@ See the [CONTRIBUTING Guidelines](https://github.com/the-simian/slush-phaser-web
 ## Support
 If you have any problem or suggestion please open an issue [here](https://github.com/the-simian/slush-phaser-webpack/issues).
 
-## License 
+## License
 
 The MIT License
 
