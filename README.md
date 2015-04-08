@@ -4,7 +4,7 @@
 
 [![Code Climate](https://codeclimate.com/github/the-simian/slush-phaser-webpack/badges/gpa.svg)](https://codeclimate.com/github/the-simian/slush-phaser-webpack)
 
-[![Coverage Status](https://coveralls.io/repos/the-simian/slush-phaser-webpack/badge.svg)](https://coveralls.io/r/the-simian/slush-phaser-webpack)
+[![Coverage Status](https://coveralls.io/repos/the-simian/slush-phaser-webpack/badge.svg?branch=master)](https://coveralls.io/r/the-simian/slush-phaser-webpack?branch=master)
 
 [![David-Dm](https://david-dm.org/the-simian/slush-phaser-webpack.svg)](https://david-dm.org/the-simian/slush-phaser-webpack)
 
