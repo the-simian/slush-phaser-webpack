@@ -48,11 +48,6 @@ describe('slush-phaser-webpack', function () {
         .once('task_stop', assertDirectories);
     });
 
-
   });
-
 });
 
-
-
-//store340@lumberliquidators.com

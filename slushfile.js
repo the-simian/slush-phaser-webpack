@@ -42,9 +42,9 @@ var defaults = (function makeDefaults() {
   if (require('fs').existsSync(configFile)) {
     user = require('iniparser').parseSync(configFile).user;
   }
-  
+
   user = user || {};
-  
+
   return {
     appName: workingDirName,
     userName: osUserName || format(user.name || ''),

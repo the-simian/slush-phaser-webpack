@@ -26,7 +26,8 @@
     "npm": ">=1.4.3"
   },
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "coveralls": "gulp coveralls"
   },
   "keywords": [
     "phaser",
