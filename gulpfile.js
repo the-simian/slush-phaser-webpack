@@ -8,6 +8,10 @@ var runSequence = require('run-sequence');
 var coveralls = require('gulp-coveralls');
 var taskListing = require('gulp-task-listing');
 
+
+var src = ['./slushfile.js', './slush/**/*.js'];
+
+
 function test(cb) {
 
   var mochaOpts = {
@@ -24,7 +28,7 @@ function test(cb) {
   }
 
   gulp
-    .src(['./slushfile.js'])
+    .src(src)
     .pipe(istanbul())
     .pipe(istanbul.hookRequire())
     .on('finish', runner);

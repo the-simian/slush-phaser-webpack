@@ -9,11 +9,7 @@ var gulp = require('gulp'),
   inquirer = require('inquirer');
 
 var moment = require('moment');
-
-
 var defaultQuestions = require('./default-questions');
-
-
 
 
 function DefaultTask(options) {
@@ -50,7 +46,6 @@ function DefaultTask(options) {
   }
 
   gulp.task('default', defaultTask);
-  
   
   return gulp;
 }
