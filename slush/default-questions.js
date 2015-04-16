@@ -2,7 +2,7 @@
 
 var defaults = require('./default-answers');
 
-function Init() {
+function DefaultQuestions() {
 
   var prompts = [{
     name: 'appName',
@@ -33,10 +33,9 @@ function Init() {
     message: 'Continue?'
   }];
 
-
   return prompts;
 }
 
 
 
-module.exports = Init;
+module.exports = DefaultQuestions();

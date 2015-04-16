@@ -8,7 +8,12 @@
 
 var gulp = require('gulp');
 
-require('./slush/default-task');
+var options = {
+  templatesDir: __dirname + '/templates/**'
+};
+
+
+require('./slush/default-task')(options);
 
 
 

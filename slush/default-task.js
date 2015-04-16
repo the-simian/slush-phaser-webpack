@@ -1,4 +1,3 @@
-
 'use strict';
 
 var gulp = require('gulp'),
@@ -12,36 +11,48 @@ var gulp = require('gulp'),
 var moment = require('moment');
 
 
-var initPrompts = require('./init-prompts');
+var defaultQuestions = require('./default-questions');
 
-function defaultTask(cb) {
 
-  function scaffold(answers) {
 
-    if (!answers.moveon) {
-      return cb();
+
+function DefaultTask(options) {
+  function defaultTask(cb) {
+
+    function scaffold(answers) {
+
+      console.log('answers', answers);
+
+      if (!answers.moveon) {
+        return cb();
+      }
+
+      answers.appNameSlug = _.slugify(answers.appName);
+      answers.dateYYYY = moment('YYYY');
+      answers.githubRepo = answers.githubRepo ||
+        'https://github.com/' + answers.userName + '/' + answers.appName;
+
+      gulp.src(options.templatesDir)
+        .pipe(template(answers))
+        .pipe(rename(function (file) {
+          if (file.basename[0] === '_') {
+            file.basename = '.' + file.basename.slice(1);
+          }
+        }))
+        //.pipe(conflict('./'))
+        .pipe(gulp.dest('./'))
+        .pipe(install())
+        .on('finish', cb);
     }
 
-    answers.appNameSlug = _.slugify(answers.appName);
-    answers.dateYYYY = moment('YYYY');
-    answers.githubRepo = answers.githubRepo ||
-      'https://github.com/' + answers.userName + '/' + answers.appName;
-
-    gulp.src(__dirname + '/templates/**')
-      .pipe(template(answers))
-      .pipe(rename(function (file) {
-        if (file.basename[0] === '_') {
-          file.basename = '.' + file.basename.slice(1);
-        }
-      }))
-      //.pipe(conflict('./'))
-      .pipe(gulp.dest('./'))
-      .pipe(install())
-      .on('finish', cb);
+    //Ask
+    inquirer.prompt(defaultQuestions, scaffold);
   }
 
-  //Ask
-  inquirer.prompt(initPrompts, scaffold);
+  gulp.task('default', defaultTask);
+  
+  
+  return gulp;
 }
 
-gulp.task('default', defaultTask);
+module.exports = DefaultTask;
