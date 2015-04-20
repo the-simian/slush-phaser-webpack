@@ -12,8 +12,7 @@ var options = {
   templatesDir: __dirname + '/templates/**'
 };
 
-
-require('./slush/default-task')(options);
+require('./slush/default/task')(options);
 
 
 

@@ -3,9 +3,8 @@
 
 var path = require('path');
 
-function format(string) {
-  var username = string.toLowerCase();
-  return username.replace(/\s/g, '');
+function formatName(string) {
+  return string.toLowerCase().replace(/\s/g, '');
 }
 
 function makeDefaults() {
@@ -31,7 +30,7 @@ function makeDefaults() {
 
   return {
     appName: workingDirName,
-    userName: osUserName || format(user.name || ''),
+    userName: osUserName || formatName(user.name || ''),
     authorName: user.name || '',
     authorEmail: user.email || ''
   };

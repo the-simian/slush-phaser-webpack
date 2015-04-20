@@ -9,18 +9,25 @@ var coveralls = require('gulp-coveralls');
 var taskListing = require('gulp-task-listing');
 
 
-var src = ['./slushfile.js', './slush/**/*.js'];
+var src = [
+  './slushfile.js',
+  './slush/**/*.js'
+];
 
 
 function test(cb) {
 
+  
+  
   var mochaOpts = {
     reporter: 'nyan'
   };
 
   function runner() {
+    
+    
     gulp
-      .src(['./test/*.js'])
+      .src(['./test/**/*.js'])
       .pipe(mocha(mochaOpts))
       .pipe(istanbul.writeReports())
 

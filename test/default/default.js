@@ -5,9 +5,8 @@ var chai = require('chai'),
   expect = chai.expect;
 
 
-var mockPrompt = require('./inquirer-prompt-fixture');
-
-require('../slushfile');
+var mockPrompt = require('./../inquirer-prompt-fixture'),
+  slushfile = require('./../../slushfile');
 
 describe('slush-phaser-webpack', function () {
 
@@ -15,11 +14,11 @@ describe('slush-phaser-webpack', function () {
 
     beforeEach(function () {
       mockPrompt({
-        appName: 'test-app',
+        appName: 'Test Application',
         userName: 'the-simian',
         authorName: 'Fancypants Harlin',
         authorEmail: 'derp@derp.derp',
-        appDescription: 'some description',
+        appDescription: 'A Super Rad Description',
         moveon: true
       });
     });
@@ -50,4 +49,3 @@ describe('slush-phaser-webpack', function () {
 
   });
 });
-

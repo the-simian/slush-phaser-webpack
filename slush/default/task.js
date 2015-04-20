@@ -9,7 +9,7 @@ var gulp = require('gulp'),
   inquirer = require('inquirer');
 
 var moment = require('moment');
-var defaultQuestions = require('./default-questions');
+var defaultQuestions = require('./questions');
 
 
 function DefaultTask(options) {
