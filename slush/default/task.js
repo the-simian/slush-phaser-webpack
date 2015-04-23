@@ -5,28 +5,30 @@ var gulp = require('gulp'),
   conflict = require('gulp-conflict'),
   template = require('gulp-template'),
   rename = require('gulp-rename'),
-  _ = require('underscore.string'),
-  inquirer = require('inquirer');
+  inquirer = require('inquirer')
+ ;
 
-var moment = require('moment');
 var defaultQuestions = require('./questions');
+var transformDefault = require('./transforms');
 
 
 function DefaultTask(options) {
   function defaultTask(cb) {
-
+    
+    
+    
+    
     function scaffold(answers) {
-
-      console.log('answers', answers);
+      
+      var transformedAnswers = transformDefault.map(answers);
+      
+      
 
       if (!answers.moveon) {
         return cb();
       }
 
-      answers.appNameSlug = _.slugify(answers.appName);
-      answers.dateYYYY = moment('YYYY');
-      answers.githubRepo = answers.githubRepo ||
-        'https://github.com/' + answers.userName + '/' + answers.appName;
+
 
       gulp.src(options.templatesDir)
         .pipe(template(answers))

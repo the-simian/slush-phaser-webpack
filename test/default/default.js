@@ -10,7 +10,7 @@ var mockPrompt = require('./../inquirer-prompt-fixture'),
 
 describe('slush-phaser-webpack', function () {
 
-  describe('default', function () {
+  describe('default-task', function () {
 
     beforeEach(function () {
       mockPrompt({
