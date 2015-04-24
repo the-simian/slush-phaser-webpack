@@ -2,8 +2,8 @@
 
 
 var path = require('path'),
-    iniparser = require('iniparser'),
-    fs = require('fs');
+  iniparser = require('iniparser'),
+  fs = require('fs');
 
 function formatName(string) {
   return string.toLowerCase().replace(/\s/g, '');
@@ -24,17 +24,20 @@ function makeDefaults() {
     homeDir = process.env.HOME || process.env.HOMEPATH;
     osUserName = homeDir && homeDir.split('/').pop() || 'root';
   }
-  
+
+  console.log('homeDir', homeDir, __dirname);
   
   configFile = path.join(homeDir, '.gitconfig');
-  user = {};
 
-  if (fs.existsSync(configFile)) {
-    user = iniparser.parseSync(configFile).user;
-  }
+  console.log('configFile', fs.existsSync(configFile) , configFile);
+  
+  user = fs.existsSync(configFile) ?
+    iniparser.parseSync(configFile).user : 
+    {};
 
-  user = user || {};
-
+  
+  console.log('user =>', user);
+  
   return {
     appName: workingDirName,
     userName: osUserName || formatName(user.name || ''),

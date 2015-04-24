@@ -21,8 +21,8 @@ describe('slush-phaser-webpack', function () {
 
     var mockEnv = {
       USERNAME: 'Jesse_Harlin',
-      HOME: '/Users/YOURMOM',
-      USERPROFILE: 'C:\Users\Jesse_Harlin'
+      HOME: './../../test/default/fixtures/Jesse_Harlin',
+      USERPROFILE: './../../fixtures/Jesse_Harlin'
     };
 
 
@@ -60,7 +60,7 @@ describe('slush-phaser-webpack', function () {
       var defaults = defaultTransforms(),
         out = {
           appName: 'something',
-          userName: 'YOURMOM',
+          userName: 'Jesse_Harlin',
           authorName: '',
           authorEmail: ''
         };
