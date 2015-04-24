@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var istanbul = require('gulp-istanbul');
 var mocha = require('gulp-mocha');
 var plato = require('gulp-plato');
@@ -17,8 +18,6 @@ var src = [
 
 function test(cb) {
 
-
-
   var mochaOpts = {
       reporter: 'nyan'
     },
@@ -27,21 +26,25 @@ function test(cb) {
     };
 
   function runner() {
-
-
     gulp
-      .src(['./test/**/*.js'])
+      .src(['./test/**/*.js'], {
+        read: false
+      })
       .pipe(mocha(mochaOpts))
+      .on('error', function () {
+        this.emit('end');
+      })
       .pipe(istanbul.writeReports())
+      .on('end', cb);
 
-    .on('end', cb);
   }
 
   gulp
     .src(src)
     .pipe(istanbul(istanbulOpts))
     .pipe(istanbul.hookRequire())
-    .on('finish', runner);
+    .on('finish', runner)
+    .on('error', gutil.log);
 }
 
 

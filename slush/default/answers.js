@@ -27,7 +27,7 @@ function makeDefaults() {
 
   console.log('homeDir', homeDir, __dirname);
   
-  configFile = path.join(homeDir, '.gitconfig');
+  configFile = path.join(path.resolve(homeDir), '.gitconfig');
 
   console.log('configFile', fs.existsSync(configFile) , configFile);
   

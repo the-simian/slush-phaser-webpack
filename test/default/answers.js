@@ -21,8 +21,8 @@ describe('slush-phaser-webpack', function () {
 
     var mockEnv = {
       USERNAME: 'Jesse_Harlin',
-      HOME: './../../test/default/fixtures/Jesse_Harlin',
-      USERPROFILE: './../../fixtures/Jesse_Harlin'
+      HOME: 'test/default/fixtures/Jesse_Harlin',
+      USERPROFILE: 'test/default/fixtures/Jesse_Harlin'
     };
 
 
@@ -39,8 +39,8 @@ describe('slush-phaser-webpack', function () {
         out = {
           appName: 'something',
           userName: 'Jesse_Harlin',
-          authorName: '',
-          authorEmail: ''
+          authorName: 'fart Blaster',
+          authorEmail: 'turdburgular@gmail.com'
         };
 
       expect(defaults)
@@ -61,8 +61,8 @@ describe('slush-phaser-webpack', function () {
         out = {
           appName: 'something',
           userName: 'Jesse_Harlin',
-          authorName: '',
-          authorEmail: ''
+          authorName: 'fart-Blaster',
+          authorEmail: 'turdburgular@gmail.com'
         };
 
       expect(defaults)
