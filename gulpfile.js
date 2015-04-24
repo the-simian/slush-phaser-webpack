@@ -17,15 +17,18 @@ var src = [
 
 function test(cb) {
 
-  
-  
+
+
   var mochaOpts = {
-    reporter: 'nyan'
-  };
+      reporter: 'nyan'
+    },
+    istanbulOpts = {
+      includeUntested: true
+    };
 
   function runner() {
-    
-    
+
+
     gulp
       .src(['./test/**/*.js'])
       .pipe(mocha(mochaOpts))
@@ -36,7 +39,7 @@ function test(cb) {
 
   gulp
     .src(src)
-    .pipe(istanbul())
+    .pipe(istanbul(istanbulOpts))
     .pipe(istanbul.hookRequire())
     .on('finish', runner);
 }
