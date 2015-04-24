@@ -1,6 +1,6 @@
 'use strict';
 
-var defaults = require('./answers');
+var defaults = require('./answers')();
 
 function DefaultQuestions() {
 

@@ -65,7 +65,9 @@
     "gulp-task-listing": "1.x.x",
     "mocha": "2.x.x",
     "mocha-lcov-reporter": "0.x.x",
+    "mock-fs": "^2.5.0",
     "mock-gulp-dest": "0.x.x",
+    "rewire": "^2.3.1",
     "run-sequence": "1.x.x"
   }
 }

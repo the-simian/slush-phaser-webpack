@@ -1,15 +1,21 @@
 'use strict';
 
 
-var path = require('path');
+var path = require('path'),
+    iniparser = require('iniparser'),
+    fs = require('fs');
 
 function formatName(string) {
   return string.toLowerCase().replace(/\s/g, '');
 }
 
 function makeDefaults() {
+
   var workingDirName = path.basename(process.cwd()),
-    homeDir, osUserName, configFile, user;
+    homeDir,
+    osUserName,
+    configFile,
+    user;
 
   if (process.platform === 'win32') {
     homeDir = process.env.USERPROFILE;
@@ -18,12 +24,13 @@ function makeDefaults() {
     homeDir = process.env.HOME || process.env.HOMEPATH;
     osUserName = homeDir && homeDir.split('/').pop() || 'root';
   }
-
+  
+  
   configFile = path.join(homeDir, '.gitconfig');
   user = {};
 
-  if (require('fs').existsSync(configFile)) {
-    user = require('iniparser').parseSync(configFile).user;
+  if (fs.existsSync(configFile)) {
+    user = iniparser.parseSync(configFile).user;
   }
 
   user = user || {};
@@ -37,4 +44,4 @@ function makeDefaults() {
 }
 
 
-module.exports = makeDefaults();
+module.exports = makeDefaults;
