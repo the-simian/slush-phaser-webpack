@@ -32,7 +32,7 @@ function makeDefaults() {
   console.log('configFile', fs.existsSync(configFile) , configFile);
   
   user = fs.existsSync(configFile) ?
-    iniparser.parseSync(configFile).user : 
+    iniparser.parseSync(configFile).user :
     {};
 
   

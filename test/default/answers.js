@@ -61,7 +61,7 @@ describe('slush-phaser-webpack', function () {
         out = {
           appName: 'something',
           userName: 'Jesse_Harlin',
-          authorName: 'fart-Blaster',
+          authorName: 'fart Blaster',
           authorEmail: 'turdburgular@gmail.com'
         };
 

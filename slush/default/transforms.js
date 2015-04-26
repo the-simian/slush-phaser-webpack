@@ -7,7 +7,7 @@ function DefaultTransform() {
   function map(answers) {
 
 
-    answers.slugifiedAppname = 'fart';
+
 
     answers.slugifiedAppname = answers.appName.split(' ').join('-').toLowerCase();
     answers.dateYYYY = new Date().getFullYear();
