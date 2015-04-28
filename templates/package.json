@@ -34,7 +34,7 @@
     "gulp-task-listing": "1.x.x",
     "gulp-util": "3.x.x",
     "gulp-webpack-build": "0.x.x",
-    "phaser": "2.x.x",
+    "phaser": "2.2.x",
     "phaser-debug": "1.x.x",
     "plato": "1.x.x",
     "webpack": "^1.7.3",
