@@ -1,15 +1,12 @@
 'use strict';
 
-
 var path = require('path');
 
-var loaders = path.join(__dirname, '/gulp/build/loaders/'),
-  phaserModule = path.join(__dirname, '/node_modules/phaser/');
+var phaserModule = path.join(__dirname, '/node_modules/phaser/');
 
-var phaserWebpackLoader = path.join(loaders, 'phaser.js'),
-  phaserWebpackDebugLoader = path.join(loaders, 'phaser-debug.js'),
-  glFragmentLoader =   path.join(loaders, 'gl-fragment.js'),
-  debugLoader = path.join(loaders, 'debug-file.js');
+var phaserWebpackLoader = path.join(__dirname, '/node_modules/phaser-shim-loader'),
+  phaserWebpackDebugLoader = path.join(__dirname, '/node_modules/phaser-shim-loader/phaser=debug'),
+  glFragmentLoader =   path.join(__dirname, '/node_modules/phaser-glsl-loader');
 
 var phaser = path.join(phaserModule, '/dist/phaser.js'),
   phaserDebug = path.join(__dirname, '/node_modules/phaser-debug/dist/phaser-debug.js');
@@ -45,8 +42,7 @@ module.exports = {
     alias: {
       'phaser-webpack-loader': phaserWebpackLoader,
       'phaser-debug-webpack-loader': phaserWebpackDebugLoader,
-      'gl-fragment-loader': glFragmentLoader,
-      'debug-loader': debugLoader
+      'gl-fragment-loader': glFragmentLoader
     }
   },
   resolve: {
