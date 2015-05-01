@@ -1,7 +1,7 @@
 {
   "name": "slush-phaser-webpack",
   "description": "A slush generator for creating games that uses webpack and commonjs compliant modules. Gulp for build system. Tools to assist in development.",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "homepage": "https://github.com/the-simian/slush-phaser-webpack",
   "author": {
     "name": "Jesse Harlin",
@@ -57,7 +57,7 @@
     "yargs": "3.x.x"
   },
   "devDependencies": {
-    "chai": "1.x.x",
+    "chai": "2.x.x",
     "gulp-coveralls": "*",
     "gulp-istanbul": "*",
     "gulp-mocha": "^2.0.1",
@@ -65,9 +65,9 @@
     "gulp-task-listing": "1.x.x",
     "gulp-util": "^3.0.4",
     "mocha-lcov-reporter": "0.x.x",
-    "mock-fs": "^2.5.0",
+    "mock-fs": "^2.6.0",
     "mock-gulp-dest": "0.x.x",
-    "rewire": "^2.3.1",
+    "rewire": "^2.3.3",
     "run-sequence": "1.x.x"
   }
 }
