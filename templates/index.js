@@ -1,12 +1,7 @@
 'use strict';
 
-
 var game = require('./game');
 var states = require('./states');
-
-
-
-
 
 
 

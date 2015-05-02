@@ -33,8 +33,30 @@ $ mkdir my-slush-phaser-webpack
 Run the generator from within the new folder:
 
 ```bash
-$ cd my-slush-phaser-webpack && slush phaser-webpack
+$ cd my-slush-phaser-webpack
+$ slush phaser-webpack
 ```
+
+Now you can build your project
+####Note: This will eventually be automated
+
+```sh
+gulp build
+```
+
+This runs webpack, and puts the project, built into the dest folder.
+
+You can run a very simple server with
+
+```
+node server
+
+```
+
+From the project root, but your project is entirely client side. That is simply a static express webserver... for now.
+
+Your project will be running on, most likely port `3553`.
+
 
 ## Getting To Know Slush
 
