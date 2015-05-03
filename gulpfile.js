@@ -22,7 +22,7 @@ function test(cb) {
       reporter: 'nyan'
     },
     istanbulOpts = {
-      includeUntested: false,
+      includeUntested: true,
       debug: true
     };
 
