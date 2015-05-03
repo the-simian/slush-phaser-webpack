@@ -26,7 +26,7 @@ function makeDefaults() {
   user = {};
 
   if (fs.existsSync(configFile)) {
-    user = iniparser.parseSync(configFile).user;
+    user = iniparser.parseSync(configFile).user || {};
   }
 
   console.log(process.platform, osUserName, user)
