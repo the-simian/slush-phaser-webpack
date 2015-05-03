@@ -30,10 +30,10 @@ function test(cb) {
     return gulp
       .src(['./test/**/*.js'])
       .pipe(mocha(mochaOpts))
-      .on('error', function (err) {
-        gutil.log(err);
-        this.emit('end');
-      })
+//      .on('error', function (err) {
+//        gutil.log(err);
+//        this.emit('end');
+//      })
       .pipe(istanbul.writeReports())
       .on('end', cb);
 

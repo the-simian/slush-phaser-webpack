@@ -58,13 +58,13 @@
   },
   "devDependencies": {
     "chai": "2.x.x",
-    "gulp-coveralls": "0.1.3",
+    "gulp-coveralls": "*",
     "gulp-istanbul": "*",
     "gulp-mocha": "*",
     "gulp-plato": "1.x.x",
     "gulp-task-listing": "1.x.x",
-    "gulp-util": "^3.0.4",
-    "mocha-lcov-reporter": "0.x.x",
+    "gulp-util": "*",
+    "mocha-lcov-reporter": "*",
     "mock-gulp-dest": "0.x.x",
     "rewire": "2.x.x",
     "run-sequence": "1.x.x"
