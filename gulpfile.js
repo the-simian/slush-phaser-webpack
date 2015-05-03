@@ -22,24 +22,27 @@ function test(cb) {
       reporter: 'nyan'
     },
     istanbulOpts = {
-      includeUntested: true
+      includeUntested: true,
+      debug: true
     };
 
   function runner() {
-    gulp
+    return gulp
       .src(['./test/**/*.js'], {
         read: false
       })
       .pipe(mocha(mochaOpts))
-      .on('error', function () {
+      .on('error', function (err) {
+        gutil.log(err);
         this.emit('end');
       })
       .pipe(istanbul.writeReports())
       .on('end', cb);
 
   }
-
-  gulp
+  
+ 
+   gulp
     .src(src)
     .pipe(istanbul(istanbulOpts))
     .pipe(istanbul.hookRequire())

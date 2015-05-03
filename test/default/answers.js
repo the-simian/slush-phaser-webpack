@@ -46,6 +46,107 @@ describe('slush-phaser-webpack', function () {
         .to
         .eql(out);
     });
+    
+        describe('process is win 32 but no username', function () {
+
+      function mockCwd() {
+        return '/example/of/something';
+      }
+
+      var mockEnv = {
+        USERNAME: '',
+        HOME: 'test/default/fixtures/Jesse_Harlin',
+        USERPROFILE: 'test/default/fixtures/Jesse_Harlin'
+      };
+
+      defaultTransforms.__set__({
+        process: {
+          env: mockEnv,
+          cwd: mockCwd,
+          platform: 'win32'
+        }
+      });
+
+      var defaults = defaultTransforms(),
+        out = {
+          appName: 'something',
+          userName: 'Jesse_Harlin',
+          authorName: 'fart Blaster',
+          authorEmail: 'turdburgular@gmail.com'
+        };
+
+      expect(defaults)
+        .to
+        .eql(out);
+    });
+    
+
+    describe('process is not win 32 with no Home', function () {
+
+      function mockCwd() {
+        return '/example/of/something';
+      }
+
+      var mockEnv = {
+        USERNAME: 'Jesse_Harlin',
+        HOMEPATH: 'test/default/fixtures/Jesse_Harlin',
+        USERPROFILE: 'test/default/fixtures/Jesse_Harlin'
+      };
+
+      defaultTransforms.__set__({
+        process: {
+          env: mockEnv,
+          cwd: mockCwd,
+          platform: 'not_win32'
+        }
+      });
+
+      var defaults = defaultTransforms(),
+        out = {
+          appName: 'something',
+          userName: 'Jesse_Harlin',
+          authorName: 'fart Blaster',
+          authorEmail: 'turdburgular@gmail.com'
+        };
+
+      expect(defaults)
+        .to
+        .eql(out);
+    });
+    
+        describe('process is not win 32 with no Home or Homepath', function () {
+
+      function mockCwd() {
+        return '/example/of/something';
+      }
+
+      var mockEnv = {
+        USERNAME: 'Jesse_Harlin',
+        USERPROFILE: 'test/default/fixtures/Jesse_Harlin'
+      };
+
+      defaultTransforms.__set__({
+        process: {
+          env: mockEnv,
+          cwd: mockCwd,
+          platform: 'not_win32'
+        }
+      });
+
+      var defaults = defaultTransforms(),
+        out = {
+          appName: 'something',
+          userName: 'root',
+          authorName: '',
+          authorEmail: ''
+        };
+
+      expect(defaults)
+        .to
+        .eql(out);
+    });
+    
+
 
     describe('process is other than win 32', function () {
 
@@ -113,7 +214,7 @@ describe('slush-phaser-webpack', function () {
     });
 
     describe('.gitdonfig is not present in the user directory', function () {
-            function mockCwd() {
+      function mockCwd() {
         return '/example/of/something';
       }
 

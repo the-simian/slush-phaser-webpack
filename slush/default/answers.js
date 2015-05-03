@@ -5,10 +5,6 @@ var path = require('path'),
   iniparser = require('iniparser'),
   fs = require('fs');
 
-function formatName(string) {
-  return string.toLowerCase().replace(/\s/g, '');
-}
-
 function makeDefaults() {
 
   var workingDirName = path.basename(process.cwd()),
@@ -18,10 +14,10 @@ function makeDefaults() {
     user;
 
   if (process.platform === 'win32') {
-    homeDir = process.env.USERPROFILE;
-    osUserName = process.env.USERNAME || path.basename(homeDir).toLowerCase();
+    homeDir = process.env.USERPROFILE || '';
+    osUserName = process.env.USERNAME || path.basename(homeDir);
   } else {
-    homeDir = process.env.HOME || process.env.HOMEPATH;
+    homeDir = process.env.HOME || process.env.HOMEPATH || '';
     osUserName = homeDir && homeDir.split('/').pop() || 'root';
   }
 
@@ -32,11 +28,9 @@ function makeDefaults() {
     {};
 
   
-  console.log('user =>', user);
-  
   return {
     appName: workingDirName,
-    userName: osUserName || formatName(user.name || ''),
+    userName: osUserName || '',
     authorName: user.name || '',
     authorEmail: user.email || ''
   };
