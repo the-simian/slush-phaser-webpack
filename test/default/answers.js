@@ -46,8 +46,8 @@ describe('slush-phaser-webpack', function () {
         .to
         .eql(out);
     });
-    
-        describe('process is win 32 but no username', function () {
+
+    describe('process is win 32 but no username', function () {
 
       function mockCwd() {
         return '/example/of/something';
@@ -55,8 +55,8 @@ describe('slush-phaser-webpack', function () {
 
       var mockEnv = {
         USERNAME: '',
-        HOME: 'test/default/fixtures/Jesse_Harlin',
-        USERPROFILE: 'test/default/fixtures/Jesse_Harlin'
+        HOME: 'test/default/fixtures/derp',
+        USERPROFILE: 'test/default/fixtures/derp'
       };
 
       defaultTransforms.__set__({
@@ -70,16 +70,15 @@ describe('slush-phaser-webpack', function () {
       var defaults = defaultTransforms(),
         out = {
           appName: 'something',
-          userName: 'Jesse_Harlin',
-          authorName: 'fart Blaster',
-          authorEmail: 'turdburgular@gmail.com'
+          userName: 'derp',
+          authorName: '',
+          authorEmail: ''
         };
 
       expect(defaults)
         .to
         .eql(out);
     });
-    
 
     describe('process is not win 32 with no Home', function () {
 
@@ -113,8 +112,8 @@ describe('slush-phaser-webpack', function () {
         .to
         .eql(out);
     });
-    
-        describe('process is not win 32 with no Home or Homepath', function () {
+
+    describe('process is not win 32 with no Home or Homepath', function () {
 
       function mockCwd() {
         return '/example/of/something';
@@ -145,8 +144,6 @@ describe('slush-phaser-webpack', function () {
         .to
         .eql(out);
     });
-    
-
 
     describe('process is other than win 32', function () {
 
@@ -181,7 +178,40 @@ describe('slush-phaser-webpack', function () {
         .eql(out);
     });
 
-    describe('.gitdonfig is present in the user directory', function () {
+    describe('.gitconfig is not present in the user directory', function () {
+      function mockCwd() {
+        return '/example/of/something';
+      }
+
+      var mockEnv = {
+        USERNAME: 'Not_Jesse_Harlin',
+        HOME: 'test/default/fixtures/Not_Jesse_Harlin',
+        USERPROFILE: 'test/default/fixtures/Not_Jesse_Harlin'
+      };
+
+      defaultTransforms.__set__({
+        process: {
+          env: mockEnv,
+          cwd: mockCwd,
+          platform: 'win32'
+        }
+      });
+
+      var defaults = defaultTransforms(),
+        out = {
+          appName: 'something',
+          userName: 'Not_Jesse_Harlin',
+          authorName: '',
+          authorEmail: ''
+        };
+
+      expect(defaults)
+        .to
+        .eql(out);
+
+    });
+
+    describe('.gitconfig is present in the user directory', function () {
       function mockCwd() {
         return '/example/of/something';
       }
@@ -211,39 +241,6 @@ describe('slush-phaser-webpack', function () {
       expect(defaults)
         .to
         .eql(out);
-    });
-
-    describe('.gitdonfig is not present in the user directory', function () {
-      function mockCwd() {
-        return '/example/of/something';
-      }
-
-      var mockEnv = {
-        USERNAME: 'Jesse_Harlin',
-        HOME: 'test/default/fixtures/Not_Jesse_Harlin',
-        USERPROFILE: 'test/default/fixtures/Not_Jesse_Harlin'
-      };
-
-      defaultTransforms.__set__({
-        process: {
-          env: mockEnv,
-          cwd: mockCwd,
-          platform: 'win32'
-        }
-      });
-
-      var defaults = defaultTransforms(),
-        out = {
-          appName: 'something',
-          userName: 'Jesse_Harlin',
-          authorName: '',
-          authorEmail: ''
-        };
-
-      expect(defaults)
-        .to
-        .eql(out);
-
     });
 
   });

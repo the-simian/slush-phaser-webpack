@@ -29,7 +29,7 @@ function makeDefaults() {
     user = iniparser.parseSync(configFile).user;
   }
 
-  console.log(user)
+  console.log(process.platform, osUserName, user)
 
   return {
     appName: workingDirName,
