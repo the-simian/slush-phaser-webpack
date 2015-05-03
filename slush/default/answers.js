@@ -23,10 +23,9 @@ function makeDefaults() {
 
   configFile = path.join(path.resolve(homeDir), '.gitconfig');
 
-  user = fs.existsSync(configFile) ?
-    iniparser.parseSync(configFile).user :
-    {};
-
+  user = fs.existsSync(configFile) ? iniparser.parseSync(configFile).user : {};
+  
+  console.log(user)
   
   return {
     appName: workingDirName,
