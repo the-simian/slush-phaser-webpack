@@ -11,7 +11,7 @@ function makeDefaults() {
     homeDir,
     osUserName,
     configFile,
-    user;
+    user = {};
 
   if (process.platform === 'win32') {
     homeDir = process.env.USERPROFILE || '';
@@ -23,13 +23,9 @@ function makeDefaults() {
 
   configFile = path.join(path.resolve(homeDir), '.gitconfig');
 
-  user = {};
-
   if (fs.existsSync(configFile)) {
     user = iniparser.parseSync(configFile).user || {};
   }
-
-  console.log(process.platform, osUserName, user)
 
   return {
     appName: workingDirName,
