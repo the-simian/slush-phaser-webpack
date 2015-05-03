@@ -25,12 +25,8 @@ function makeDefaults() {
     osUserName = homeDir && homeDir.split('/').pop() || 'root';
   }
 
-  console.log('homeDir', homeDir, __dirname);
-  
   configFile = path.join(path.resolve(homeDir), '.gitconfig');
 
-  console.log('configFile', fs.existsSync(configFile) , configFile);
-  
   user = fs.existsSync(configFile) ?
     iniparser.parseSync(configFile).user :
     {};

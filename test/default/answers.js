@@ -4,8 +4,7 @@ var chai = require('chai'),
   expect = chai.expect;
 
 
-var rewire = require('rewire'),
-  mockFs = require('mock-fs');
+var rewire = require('rewire');
 
 
 var defaultTransforms = rewire('./../../slush/default/answers');
@@ -15,18 +14,18 @@ describe('slush-phaser-webpack', function () {
 
   describe('default-answers', function () {
 
-    function mockCwd() {
-      return '/example/of/something';
-    }
-
-    var mockEnv = {
-      USERNAME: 'Jesse_Harlin',
-      HOME: 'test/default/fixtures/Jesse_Harlin',
-      USERPROFILE: 'test/default/fixtures/Jesse_Harlin'
-    };
-
-
     describe('process is win 32', function () {
+
+      function mockCwd() {
+        return '/example/of/something';
+      }
+
+      var mockEnv = {
+        USERNAME: 'Jesse_Harlin',
+        HOME: 'test/default/fixtures/Jesse_Harlin',
+        USERPROFILE: 'test/default/fixtures/Jesse_Harlin'
+      };
+
       defaultTransforms.__set__({
         process: {
           env: mockEnv,
@@ -49,6 +48,17 @@ describe('slush-phaser-webpack', function () {
     });
 
     describe('process is other than win 32', function () {
+
+      function mockCwd() {
+        return '/example/of/something';
+      }
+
+      var mockEnv = {
+        USERNAME: 'Jesse_Harlin',
+        HOME: 'test/default/fixtures/Jesse_Harlin',
+        USERPROFILE: 'test/default/fixtures/Jesse_Harlin'
+      };
+
       defaultTransforms.__set__({
         process: {
           env: mockEnv,
@@ -68,6 +78,71 @@ describe('slush-phaser-webpack', function () {
       expect(defaults)
         .to
         .eql(out);
+    });
+
+    describe('.gitdonfig is present in the user directory', function () {
+      function mockCwd() {
+        return '/example/of/something';
+      }
+
+      var mockEnv = {
+        USERNAME: 'Jesse_Harlin',
+        HOME: 'test/default/fixtures/Jesse_Harlin',
+        USERPROFILE: 'test/default/fixtures/Jesse_Harlin'
+      };
+
+      defaultTransforms.__set__({
+        process: {
+          env: mockEnv,
+          cwd: mockCwd,
+          platform: 'win32'
+        }
+      });
+
+      var defaults = defaultTransforms(),
+        out = {
+          appName: 'something',
+          userName: 'Jesse_Harlin',
+          authorName: 'fart Blaster',
+          authorEmail: 'turdburgular@gmail.com'
+        };
+
+      expect(defaults)
+        .to
+        .eql(out);
+    });
+
+    describe('.gitdonfig is not present in the user directory', function () {
+            function mockCwd() {
+        return '/example/of/something';
+      }
+
+      var mockEnv = {
+        USERNAME: 'Jesse_Harlin',
+        HOME: 'test/default/fixtures/Not_Jesse_Harlin',
+        USERPROFILE: 'test/default/fixtures/Not_Jesse_Harlin'
+      };
+
+      defaultTransforms.__set__({
+        process: {
+          env: mockEnv,
+          cwd: mockCwd,
+          platform: 'win32'
+        }
+      });
+
+      var defaults = defaultTransforms(),
+        out = {
+          appName: 'something',
+          userName: 'Jesse_Harlin',
+          authorName: '',
+          authorEmail: ''
+        };
+
+      expect(defaults)
+        .to
+        .eql(out);
+
     });
 
   });
