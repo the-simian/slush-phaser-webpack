@@ -28,9 +28,7 @@ function test(cb) {
 
   function runner() {
     return gulp
-      .src(['./test/**/*.js'], {
-        read: false
-      })
+      .src(['./test/**/*.js'])
       .pipe(mocha(mochaOpts))
       .on('error', function (err) {
         gutil.log(err);
