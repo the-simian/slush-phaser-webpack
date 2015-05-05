@@ -57,6 +57,11 @@ From the project root, but your project is entirely client side. That is simply 
 
 Your project will be running on, most likely port `3553`.
 
+I made a repo with a little example of what this outputs, that can be checked out if you're curious
+[Phaser Webpack Example Output](https://github.com/the-simian/phaser-webpack-output-example)
+
+Expect this repo to change a lot, as I am actively working on it.
+
 
 ## Getting To Know Slush
 
