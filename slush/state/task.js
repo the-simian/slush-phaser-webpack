@@ -7,37 +7,25 @@ var gulp = require('gulp'),
   rename = require('gulp-rename'),
   inquirer = require('inquirer');
 
-var debug = require('gulp-debug');
-
-var defaultQuestions = require('./questions');
 var transformDefault = require('./transforms');
+var defaultQuestions = require('./questions');
 
-
-function DefaultTask(options) {
+function StateTask(options) {
   function defaultTask(cb) {
 
     function scaffold(answers) {
-
+      
       var answers = transformDefault.map(answers);
-
-      function renameFiles(file) {
-        if (file.basename[0] === '_') {
-          file.basename = '.' + file.basename.slice(1);
-        }
-      }
 
       if (!answers.moveon) {
         return cb();
       }
-
-      gulp
-        .src(options.templatesDir + '/default/**')
+      
+      var outputDir = './src/states/' + answers.kebabStateName;
+      
+      gulp.src(options.templatesDir + '/state/**')
         .pipe(template(answers))
-        //.pipe(debug())
-        .pipe(rename(renameFiles))
-        //.pipe(conflict('./'))
-        .pipe(gulp.dest('./'))
-        .pipe(install())
+        .pipe(gulp.dest(outputDir))
         .on('finish', cb);
     }
 
@@ -45,9 +33,9 @@ function DefaultTask(options) {
     inquirer.prompt(defaultQuestions, scaffold);
   }
 
-  gulp.task('default', defaultTask);
+  gulp.task('state', defaultTask);
 
   return gulp;
 }
 
-module.exports = DefaultTask;
+module.exports = StateTask;

@@ -8,40 +8,43 @@ var plato = require('gulp-plato');
 var runSequence = require('run-sequence');
 var coveralls = require('gulp-coveralls');
 var taskListing = require('gulp-task-listing');
+var debug = require('gulp-debug');
 
 
-var src = [
+var srcGlob = [
   './slushfile.js',
   './slush/**/*.js'
 ];
 
+var testGlob = ['./test/**/*.js']
+
+
+var mochaOpts = {
+    reporter: 'nyan'
+  },
+  istanbulOpts = {
+    includeUntested: true,
+    debug: true
+  };
+
 
 function test(cb) {
 
-  var mochaOpts = {
-      reporter: 'nyan'
-    },
-    istanbulOpts = {
-      includeUntested: true,
-      debug: true
-    };
-
   function runner() {
     return gulp
-      .src(['./test/**/*.js'])
+      .src(testGlob)
       .pipe(mocha(mochaOpts))
-//      .on('error', function (err) {
-//        gutil.log(err);
-//        this.emit('end');
-//      })
+      //      .on('error', function (err) {
+      //        gutil.log(err);
+      //        this.emit('end');
+      //      })
       .pipe(istanbul.writeReports())
       .on('end', cb);
-
   }
-  
- 
-   gulp
-    .src(src)
+
+  gulp
+    .src(srcGlob)
+    .pipe(debug())
     .pipe(istanbul(istanbulOpts))
     .pipe(istanbul.hookRequire())
     .on('finish', runner)

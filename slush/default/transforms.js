@@ -6,13 +6,9 @@ var moment = require('moment');
 function DefaultTransform() {
   function map(answers) {
 
-
-
-
     answers.slugifiedAppname = answers.appName.split(' ').join('-').toLowerCase();
     answers.dateYYYY = new Date().getFullYear();
     answers.githubRepo = answers.githubRepo || 'https://github.com/' + answers.userName + '/' + answers.appName;
-
 
     return answers;
   }
