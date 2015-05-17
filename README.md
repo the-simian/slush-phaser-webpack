@@ -97,7 +97,7 @@ The initial Scaffold that creates the entire project. The resultant folder struc
 +-- README.md
 +-- server.js
 +-- webpack.config.js
-```sh
+```
 
 #### state
 ##### `slush phaser-webpack:state`
