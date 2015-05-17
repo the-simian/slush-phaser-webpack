@@ -50,7 +50,6 @@ You can run a very simple server with
 
 ```
 node server
-
 ```
 
 From the project root, but your project is entirely client side. That is simply a static express webserver... for now.
