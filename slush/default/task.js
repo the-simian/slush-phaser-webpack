@@ -33,7 +33,6 @@ function DefaultTask(options) {
       gulp
         .src(options.templatesDir + '/default/**')
         .pipe(template(answers))
-        //.pipe(debug())
         .pipe(rename(renameFiles))
         //.pipe(conflict('./'))
         .pipe(gulp.dest('./'))

@@ -28,14 +28,24 @@ function Casing() {
 
   function varCase(str) {
     var stringList = str.split('.');
+    
     var newString = _.map(stringList, caseIt);
-    newString = newString.join('')
+    
+    newString = newString
+      .join('')
       .split('-');
+
     newString = _.map(newString, caseIt);
-    return newString.join('')
+    
+    newString = newString
+      .join('')
       .replace(/^(.)/, function($1) {
         return $1.toLowerCase();
       });
+    
+    newString = camelCase(newString);
+
+    return newString;
   }
 
   function kebabCase(str) {

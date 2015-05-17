@@ -7,6 +7,8 @@ var gulp = require('gulp'),
   rename = require('gulp-rename'),
   inquirer = require('inquirer');
 
+var debug = require('gulp-debug')
+
 var transformDefault = require('./transforms');
 var defaultQuestions = require('./questions');
 
@@ -14,17 +16,26 @@ function StateTask(options) {
   function defaultTask(cb) {
 
     function scaffold(answers) {
-      
+
       var answers = transformDefault.map(answers);
 
       if (!answers.moveon) {
         return cb();
       }
-      
-      var outputDir = './src/states/' + answers.kebabStateName;
-      
-      gulp.src(options.templatesDir + '/state/**')
+
+      function toStateName() {}
+
+      var outputDir = './src/states/';
+
+      gulp
+        .src(options.templatesDir + '/state/state.js')
+        .pipe(rename({
+          basename: answers.kebabStateName
+        }))
+        .pipe(debug())
         .pipe(template(answers))
+        
+
         .pipe(gulp.dest(outputDir))
         .on('finish', cb);
     }

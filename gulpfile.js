@@ -44,7 +44,7 @@ function test(cb) {
 
   gulp
     .src(srcGlob)
-    .pipe(debug())
+    //.pipe(debug())
     .pipe(istanbul(istanbulOpts))
     .pipe(istanbul.hookRequire())
     .on('finish', runner)

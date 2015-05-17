@@ -1,7 +1,6 @@
 'use strict';
 var chai = require('chai'),
   gulp = require('gulp'),
-  mockGulpDest = require('mock-gulp-dest')(gulp),
   expect = chai.expect;
 
 
@@ -9,7 +8,13 @@ var mockPrompt = require('./../inquirer-prompt-fixture'),
   slushfile = require('./../../slushfile');
 
 describe('slush-phaser-webpack', function () {
-
+  
+  var mockGulpDest;
+  
+  beforeEach(function(){
+     mockGulpDest = require('mock-gulp-dest')(gulp);
+  });
+  
   describe('default-task', function () {
 
     beforeEach(function () {
@@ -46,6 +51,50 @@ describe('slush-phaser-webpack', function () {
         .start('default')
         .once('task_stop', assertDirectories);
     });
+
+    it('should make a server', function (done) {
+
+      function assertDirectories() {
+        mockGulpDest.assertDestContains('server.js');
+        done();
+      }
+
+      gulp
+        .start('default')
+        .once('task_stop', assertDirectories);
+    });
+
+
+    it('should scaffold the right src folder structure', function (done) {
+
+      function assertDirectories() {
+        mockGulpDest.assertDestContains({
+          src: {
+            assets: {
+              fontmaps: [],
+              spritesheets: [],
+              tilemaps: [],
+              tilesets: []
+            },
+            scenes: [],
+            shaders: [],
+            states: ['boot.js'],
+            _: [
+              'game.js',
+              'index.html',
+              'index.js',
+              'states.js'
+            ]
+          }
+        });
+        done();
+      }
+
+      gulp
+        .start('default')
+        .once('task_stop', assertDirectories);
+    });
+
 
   });
 });
