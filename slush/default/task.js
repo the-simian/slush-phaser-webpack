@@ -14,21 +14,14 @@ var transformDefault = require('./transforms');
 
 function DefaultTask(options) {
   function defaultTask(cb) {
-    
-    
-    
-    
+
     function scaffold(answers) {
       
       var transformedAnswers = transformDefault.map(answers);
-      
-      
 
       if (!answers.moveon) {
         return cb();
       }
-
-
 
       gulp.src(options.templatesDir)
         .pipe(template(answers))

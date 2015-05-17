@@ -18,7 +18,7 @@ function DefaultQuestions() {
   }, {
     name: 'authorName',
     message: 'What is the author name?',
-    default: defaults.authorName
+    default: defaults.userName
   }, {
     name: 'authorEmail',
     message: 'What is the author email?',
@@ -26,7 +26,7 @@ function DefaultQuestions() {
   }, {
     name: 'userName',
     message: 'What is the github username?',
-    default: defaults.userName
+    default: defaults.authorName
   }, {
     type: 'confirm',
     name: 'moveon',
