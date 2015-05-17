@@ -8,7 +8,7 @@
 
 [![David-Dm](https://david-dm.org/the-simian/slush-phaser-webpack.svg)](https://david-dm.org/the-simian/slush-phaser-webpack)
 
-###CURRENTLY IN DEVELOPMENT
+### CURRENTLY IN DEVELOPMENT
 
 > A slush generator for creating games that uses webpack and commonjs compliant modules. Gulp for build system. Tools to assist in development.
 
@@ -38,7 +38,7 @@ $ slush phaser-webpack
 ```
 
 Now you can build your project
-####Note: This will eventually be automated
+#### Note: This will eventually be automated
 
 ```sh
 gulp build
@@ -61,6 +61,48 @@ I made a repo with a little example of what this outputs, that can be checked ou
 [Phaser Webpack Example Output](https://github.com/the-simian/phaser-webpack-output-example)
 
 Expect this repo to change a lot, as I am actively working on it.
+
+
+## Available Scaffolds
+
+#### default
+##### `slush phaser-webpack`
+
+The initial Scaffold that creates the entire project. The resultant folder structure is thus:
+
+```sh
+.
++-- dist (after running `gulp bs`)
+  +-- js
+    +-- index.js
+    +--  index.js.map (for debugging webpack)
+  +-- index.html
++-- gulp (see all taks by simply typing `gulp`)
++-- node_modules
++-- src
+  +-- assets
+  +-- scenes
+  +-- shaders
+  +-- states
+  +-- utils
+  +-- game.js
+  +-- index.html
+  +-- index.js
+  +-- plugins.js
+  +-- states.js
++-- game.js
++-- gulpfile.js
++-- LICENCE
++-- package.json
++-- README.md
++-- server.js
++-- webpack.config.js
+```sh
+
+#### state
+##### `slush phaser-webpack:state`
+
+This will scaffold a single state module. and place it in the `states` directory.
 
 
 ## Getting To Know Slush
