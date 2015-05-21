@@ -4,9 +4,8 @@ var path = require('path');
 
 var phaserModule = path.join(__dirname, '/node_modules/phaser/');
 
-var phaserWebpackLoader = path.join(__dirname, '/node_modules/phaser-shim-loader'),
-  phaserWebpackDebugLoader = path.join(__dirname, '/node_modules/phaser-shim-loader/phaser=debug'),
-  glFragmentLoader =   path.join(__dirname, '/node_modules/phaser-glsl-loader');
+var glFragmentLoader = path.join(__dirname, '/node_modules/phaser-glsl-loader'),
+  jsonLoader = path.join(__dirname, '/node_modules/json-loader');
 
 var phaser = path.join(phaserModule, '/dist/phaser.js'),
   phaserDebug = path.join(__dirname, '/node_modules/phaser-debug/dist/phaser-debug.js');
@@ -22,27 +21,26 @@ module.exports = {
     hotUpdateMainFilename: '[hash]/update.json',
     hotUpdateChunkFilename: '[hash]/js/[id].update.js'
   },
+  target: 'web',
   module: {
     loaders: [
       {
-        test: /phaser\.js$/i,
-        loader: 'phaser-webpack-loader'
-      },
-      {
-        test: /phaser-debug\.js$/i,
-        loader: 'phaser-debug-webpack-loader'
-      },
-      {
         test: /\.frag$/i,
         loader: 'gl-fragment-loader'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       }
     ]
   },
+  node: {
+    fs: "empty"
+  },
   resolveLoader: {
     alias: {
-      'phaser-webpack-loader': phaserWebpackLoader,
-      'phaser-debug-webpack-loader': phaserWebpackDebugLoader,
-      'gl-fragment-loader': glFragmentLoader
+      'gl-fragment-loader': glFragmentLoader,
+      'json-loader': jsonLoader
     }
   },
   resolve: {

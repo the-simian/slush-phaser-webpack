@@ -28,19 +28,21 @@
   "scripts": {
     "test": ""
   },
-    "devDependencies": {
+  "devDependencies": {
     "gulp": "3.x.x",
     "gulp-gh-pages": "0.4.x",
     "gulp-task-listing": "1.x.x",
     "gulp-util": "3.x.x",
     "gulp-webpack-build": "0.x.x",
-    "phaser": "2.2.x",
+    "json-loader": "^0.5.1",
+    "phaser": "2.3.x",
     "phaser-glsl-loader": "*",
-    "phaser-shim-loader" : "*",
-    "phaser-debug": "1.x.x",
     "plato": "1.x.x",
     "webpack": "^1.7.3",
-    "webpack-dev-server": "^1.7.0"
+    "webpack-dev-server": "^1.7.0",
+    "p2": "^0.6.1",
+    "phaser-debug": "1.x.x",
+    "pixi.js": "2.x.x"
   },
   "dependencies": {
     "body-parser": "1.12.x",
